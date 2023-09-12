@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--	basicText.ejs
+
+	For Indian Hills Community College
+	Parking On Hills, https://parking.indianhils.edu
+	by Blaine Harper
+
+	PURPOSE: Sample landing page. Currently unused
+-->
+<%- include("../base/headcode.ejs") %>
+<%- include("../base/navbar.ejs") %>
+	<% for( i=0; i<page.content.length; i++) { %>
+		<% parallax = page.content[i].parallax %>
+		<%- include("../base/mixins/parallax.ejs") %>
+		<% hero = page.content[i].hero %>
+		<%- include("../base/mixins/hero.ejs") %>
+	<% } %>
+	<% parallax = {"rem":15, "url":"/res/plp/graphics/philamb_flag.png"}; %>
+	<%- include("../base/mixins/parallax.ejs") %>
+<%- include("../base/footer.ejs") %>

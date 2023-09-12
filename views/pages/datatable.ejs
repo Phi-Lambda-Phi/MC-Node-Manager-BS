@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--	datatable.ejs
+
+	For BlaineHarper.com
+	ExpressJS Bootstrap Seed, https://ebs.blaineharper.com/datatable
+	by Blaine Harper
+
+	PURPOSE: 
+-->
+<%- include("../base/headcode.ejs") %>
+<%- include("../base/navbar.ejs") %>
+<link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/2.2.0/css/searchPanes.bootstrap5.min.css"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/select/1.7.0/css/select.bootstrap5.min.css"/>
+<br><br>
+<div class="container">
+	<div class="px-4 py-3 my-3 bg-plp-dark rounded shadow-lg">
+		<div class="col mx-auto">
+			<div class="row my-3 mx-auto" style="max-width:90%;">
+				<br><br>
+				<div class="plp-h1 text-center"><%= title %></div>
+				<br>
+				<div>
+					<%- table.buttons %>
+				</div>
+			</div>
+			<hr>
+			<iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+			<div class="row my-3 mx-auto" style="max-width:90%;">
+				<span><%= subtitle %></span>
+				<div class="my-3">
+					<form id="generalTableForm" method="post" target="dummyframe">
+						<table class="py-1 table table-striped table-hover table-bordered" id="generalTable" style="width:100%;">
+							<thead>
+								<tr>
+									<% for( var i = 0; i < table.columns.length; i++ ) { %>
+										<% forms = env.forms; %>
+										<th><%= forms[table.columns[i]].label %></th>
+									<% } %>
+									<th><input type="checkbox" name="checkAll" id="checkAll"></input> Select All</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% for( var i = 0; i < table.data.length; i++ ) { %>
+									<tr>
+										<% for( var j = 0; j < table.columns.length; j++ ) { %>
+											<td <% if (typeof table.data[i][table.columns[j]] === "number" ) { %>class="text-center"<% } %>>
+												<% if(!table.filterColumns.includes(j)) { %><a style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modal_<%- table.data[i][Object.keys(table.data[i])[1]] %>"><% } %>		
+												<% if( table.columns[j] == "intChapter" ) { %><a href='/about/chapters?chapter=<%= table.data[i][table.columns[j]]; %>'><% } %>
+													<%= table.data[i][table.columns[j]]; %>
+												<% if( !table.filterColumns.includes(j) ) { %></a><% } %>
+												<% if( table.columns[j] == "intChapter" ) { %></a><% } %>
+											</td><% } %>
+										<td>
+											<input type="checkbox" name="<%= table.data[i]["txtGUID"]%>" value=1 id="select_<%- i %>"></input>
+										</td>
+									</tr>
+								<% } %>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<% for(var i = 0; i < table.data.length; i++) {%>
+	<%- table.modals[i] %>
+<% } %>
+<script type="text/javascript">
+	window.addEventListener("load", (event) => {
+		loc = "<%- env.loc %>";
+		exportButtons = ['copy','csv','pdf','colvis'];
+		generalTable = $('#generalTable').DataTable({
+			lengthChange: false,
+			pageLength: 15,
+			pagingType: 'full_numbers',
+			searchPanes: {
+				columns:[<%- table.filterColumns %>]
+			},
+			'columnDefs': [{
+				'targets': [<%- table.disableOrderColumns %>], 
+				'orderable': false,
+			}],
+			scrollX: true,
+			buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
+			order: <%- JSON.stringify(table.order) %>
+		});
+		
+		generalTable.searchPanes.container().prependTo(generalTable.table().container());
+		generalTable.searchPanes.resizePanes();
+		
+		generalTable.buttons().container().appendTo( '#generalTable_wrapper .col-md-6:eq(0)' );
+		
+		role = <%- activeUser.local.intRole %>;
+		localId = <%- activeUser.local.intId %>;
+		
+		const urlParams = new URLSearchParams(window.location.search);
+		const entityId = urlParams.get('entityId');
+		
+		if(window.location.href.indexOf('entityId') != -1 ) {
+			$('#modal_' + entityId).modal('show');
+		}
+		
+		$("#checkAll").click(function(){
+			currentPage = generalTable.page();
+			console.log(currentPage);
+			$('input:checkbox').not(this).prop('checked', this.checked);
+			generalTable.page(currentPage).draw();
+		});
+	});
+</script>
+<br><br>
+<%- include("../base/footer.ejs") %>

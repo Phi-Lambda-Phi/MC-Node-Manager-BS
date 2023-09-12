@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--	navbar.ejs
+
+	For BlaineHarper.com
+	ExpressJS-Bootstrap-Seed, https://ebs.blaineharper.com/
+	by Blaine Harper
+
+	PURPOSE: 
+-->
+<% uri = "https://philambdaphi.org" %>
+<nav class="navbar navbar-expand-lg bg-plp-dark sticky-top shadow-lg">
+	<div class="container-fluid">
+		<button class="my-1 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<a style="margin-left:10%; position:absolute;" class="navbar-brand hide-on-shrink" href="/home"><%- env.title %></a>
+			<ul class="navbar-nav mx-auto">
+				<li class="nav-item">
+					<a class="nav-link <% if(env.loc.substring(0,4) == "/hom") { %> active <% } %>" href="/home">Commands</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://philambdaphi.org">About Φ Λ</a>
+				</li>
+			</ul>
+			<ul class="navbar-nav navbar-right">
+			</ul>
+		</div>
+	</div>
+</nav>
+<main class="bg-gradient">

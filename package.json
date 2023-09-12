@@ -1,0 +1,43 @@
+{
+  "name": "NEB Seed",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "@azure/msal-node": "^1.18.0",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.2.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "http-errors": "~1.6.3",
+    "jade": "^0.29.0",
+    "moment": "^2.29.4",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pm2": "^5.3.0",
+    "serve-favicon": "^2.5.0",
+    "sharp": "^0.32.5"
+  },
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhar2254/Node-Express-Bootstrap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhar2254/Node-Express-Bootstrap/issues"
+  },
+  "homepage": "https://github.com/bhar2254/Node-Express-Bootstrap#readme"
+}

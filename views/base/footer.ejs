@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--	footer.ejs
+
+	For Indian Hills Community College
+	Parking On Hills, https://parking.indianhils.edu
+	by Blaine Harper
+
+	PURPOSE: Footer for Parking UI
+--><!-- Footer -->
+</main>
+<footer class="text-center bg-dark text-lg-start text-muted">
+	<section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+		<div class="me-5 d-none d-lg-block"   style="color:var(--plp-gold);">
+			<span>Get connected with us on social networks:</span>
+		</div>
+		<div   style="color:var(--plp-light-blue);">
+			<a href="https://philamb.info/fb" class="me-4 text-reset"><i class="fab fa-facebook"></i></a>
+			<a href="https://philamb.info/insta" class="me-4 text-reset"><i class="fab fa-instagram"></i></a>
+			<a href="https://philamb.info/r" class="me-4 text-reset"><i class="fab fa-reddit"></i></a>
+			<a href="https://philamb.info/gh" class="me-4 text-reset"><i class="fab fa-github"></i></a>
+		</div>
+	</section>
+	<section class="">
+		<div class="container text-center text-md-start mt-5">
+			<div class="row mt-3">
+				<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+					<h6 class="text-uppercase fw-bold mb-4">Phi Lambda Phi</h6>
+					<p>Building a Better Brotherhood<br>One Man at a Time</p>
+					<p>Est. nat. '02 / loc. '69</p>
+				</div>
+			<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+				<h6 class="text-uppercase fw-bold mb-4">Our Services</h6>
+				<p><a href="https://github.com/Phi-Lambda-Phi">Projects</a></p>
+				<p><a href="mailto:event@philamb.info">Event Space Rental</a></p>
+			</div>
+			<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+				<h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+				<p><i class="fas fa-home me-3"></i>610 S. Osteopathy Ave.<br>Kirksville, MO 63501</p>
+				<p><i class="fas fa-envelope me-3"></i>contact_us@philamb.info</p>
+			</div>
+			</div>
+		</div>
+	</section>
+	<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+		<a class="fw-bold" href="https://philambdaphi.org">Phi Lambda Phi | National Fraternity</a> © 2023 Copyright
+	</div>
+</footer>
+	<button class='btn rounded-circle'onclick="topFunction()" id="topButton" title="Go to top">Top</button>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-1.13.6/b-2.4.1/b-colvis-2.4.1/b-html5-2.4.1/cr-1.7.0/r-2.5.0/rr-1.4.1/sc-2.2.0/sb-1.5.0/sp-2.2.0/sl-1.7.0/datatables.min.js"></script>
+
+	<script src="https://kit.fontawesome.com/5496aaa581.js" crossorigin="anonymous"></script>
+	<script>
+		// Get the button
+		let buttonToTop = document.getElementById("topButton");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				buttonToTop.style.display = "block";
+			} else {
+				buttonToTop.style.display = "none";
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+</body>
+</html>

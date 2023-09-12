@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--	index.ejs
+
+	For Indian Hills Community College
+	Parking On Hills, https://parking.indianhils.edu
+	by Blaine Harper
+
+	PURPOSE: Sample landing page. Currently unused
+-->
+<link href="/css/cover.css?ver=<%= Math.floor(Date.now()/1000); %>" rel="stylesheet">
+<%- include("../headcode.ejs") %>
+<main role="main" class="inner cover my-auto">
+	<div class="col text-center rounded p-3">
+		<h1 class="p-3" style="color:var(--plp-gold);"><%- title %></h1>
+		<p class="shadow-lg lead px-3 py-3 bg-plp-dark rounded-pill"><%- subtitle %></p>
+		<p class="lead"><a href="/home" class="shadow-lg btn btn-lg btn-secondary my-3">Learn more</a></p>
+	</div>
+</main>
